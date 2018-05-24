@@ -1,2 +1,4 @@
 # OC-Projet-4
-Blog de Jean FORTEROCHE 
+Blog de Jean FORTEROCHE
+
+Jean FORTEROCHE, écrivain à succès, veut publier son dernier roman par épisodes sous forme de blog. Pour ce faire, j'ai crée un moteur de blog sans passer par WORDPRESS afin de rendre le site complètement personnalisé. Avant-dernier projet de mon parcours et certainement le plus complexe à mettre en oeuvre, le blog "BILLET SIMPLE POUR L'ALASKA" est développé avec la totalité des technologies nécessaires à la réalisation d'un site web dynamique (HTML, CSS, JavaScript, PHP et SQL). Le site se compose d'une interface client qui permet de lire les billets postés et de les commenter ainsi qu'une interface d'administration permettant de créer, modifier ou supprmier des billets et donne également la possibilité de modérer les commentaires fait sur les billets.
