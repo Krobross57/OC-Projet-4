@@ -1,0 +1,1009 @@
+body {
+    background-image: url(../images/yellowstone-national-park-1581879_1920.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+/* Login page designs
+-------------------- */
+
+#connectionpanel {
+
+    background-color: white;
+    z-index: 0;
+    opacity: 0;
+    box-shadow: 0px 0px 10px white;
+    margin-top: 20%;
+    padding: 2% 0;
+}
+
+#connectionpanelTitle {
+
+    font-family: 'Philosopher', sans-serif;
+    font-size: 180%;
+    text-align: center;
+    width: 70%;
+}
+
+#connectionpanelSubTitle {
+
+    font-family: 'Helvetica', sans-serif;
+    font-size: 90%;
+    font-style: italic;
+    text-align: right;
+    margin-bottom: 10%;
+}
+
+#login {
+
+    padding-left: 10px;
+    margin-bottom: 5%;
+}
+
+#password {
+
+    padding-left: 10px;
+    margin-bottom: 10%;
+}
+
+#connectionbutton {
+
+    background-color: rgb(0, 133, 189);
+    border-radius: 5px;
+    color: white;
+    font-size: 80%;
+    padding: 10px;
+}
+
+#invalidPSWD {
+
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  color: #ff0000;
+}
+
+/* Main designs
+--------------- */
+
+header {
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.navbar-light {
+
+  height: 100%;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-light .navbar-brand {
+
+  font-family: 'Philosopher', sans-serif;
+  height: 100%;
+  width: 30%;
+  margin: auto 0;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 150%;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  text-decoration: none;
+}
+
+.navbar-light .navbar-brand:hover {
+
+  color: rgb(0, 133, 189);
+  text-decoration: none;
+}
+
+.navbar-nav {
+
+  background-color: white;
+}
+
+.nav-item {
+    display: inline;
+    margin: auto 15px;
+    color: black;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.navbar-light .navbar-nav .nav-link {
+
+  text-decoration: none;
+  color: black;
+  font-size: 120%;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+
+  color: rgb(0, 133, 189);
+}
+
+.navbar-toggler {
+
+  margin-right: 2%;
+}
+
+#post {
+    width: 70%;
+    height: 120%;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+#title {
+    width: 100%;
+    height: 10%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+
+#title h2 {
+    font-family: 'Philosopher', sans-serif;
+    width: 20%;
+    height: 30%;
+    position: absolute;
+    left: 5%;
+    top: 35%;
+    text-align: left;
+    margin: 0;
+}
+
+#socialmedias {
+    display: block;
+    list-style-type: none;
+    width: 5%;
+    height: 40%;
+    position: fixed;
+    top: 30%;
+    right: 3%;
+}
+
+#socialmedias li {
+
+    margin: 40px auto;
+}
+
+#socialmedias li a {
+
+    color: white;
+    text-decoration: none;
+}
+
+#socialmedias li a:hover {
+
+  color: rgb(0, 133, 189);
+}
+
+.pagination {
+
+  margin-top: 10%;
+}
+
+.pagination li, .pagination li a {
+
+  font-family: 'Philosopher', sans-serif;
+}
+
+.page-item-disabled {
+
+  background-color: white;
+  border: 1px solid #dee2e6;
+  padding: .5rem .75rem;
+  line-height: 1.25;
+  margin-left: -1px;
+  text-decoration: underline;
+  color: black;
+}
+
+.mainContent {
+
+  margin-top: 10%;
+  background-color: rgba(0, 133, 189, .7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px white;
+}
+
+.mainTitles {
+
+  font-family: 'Philosopher', sans-serif;
+  font-size: 200%;
+  margin-bottom: 5%;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
+
+
+/* Chapters designs
+------------------- */
+
+#chapterItem a {
+
+  text-decoration: none;
+  color: black;
+}
+
+#chapterTitle {
+
+  font-family: 'Philosopher', sans-serif;
+  border-bottom: 1px solid white;
+  padding: 5px;
+  width: 50%;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
+
+#addedon {
+
+    width: 40%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 15px;
+    margin-right: 5px;
+    padding: 15px;
+}
+
+#addedon p {
+    font-style: italic;
+    text-align: right;
+    font-family: 'Philosopher', sans-serif;
+    color: white;
+    text-shadow: 0px 0px 5px white;
+}
+
+#addingauthor {
+    margin-left: 10px;
+}
+
+#addingdate {
+    margin-left: 5px;
+}
+
+#chapterContent {
+
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: justify;
+  padding: 20px;
+  font-family: 'Times New Roman', sans-serif;
+  background-color: white;
+  box-shadow: 10px 15px 10px black;
+}
+
+#lastModif {
+
+  font-size: 125%;
+  margin-top: 100px;
+}
+
+#commentsTitle {
+
+    font-family: 'Philosopher', sans-serif;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+    color: white;
+    text-shadow: 0px 0px 10px white;
+}
+
+#chapterItem fieldset {
+
+  border: 1px solid white;
+  padding: 10px;
+}
+
+#chapterItem fieldset legend {
+
+  font-size: 100%;
+  font-family: 'Philosopher', sans-serif;
+  padding: 5px;
+  width: 90%;
+  border: 1px solid white;
+  color: white;
+}
+
+#chapterItem fieldset legend a {
+
+  color: white;
+}
+
+#chapterItem fieldset legend a:hover {
+
+  text-decoration: underline;
+}
+
+#commentContent {
+
+  color: white;
+}
+
+#nocomment {
+
+  font-family: 'Philosopher', sans-serif;
+  font-size: 100%;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
+
+#addComment {
+
+  margin-top: 30px;
+  margin-bottom: 5%;
+}
+
+#addComment a {
+
+  text-decoration: none;
+  font-family: 'Philosopher', sans-serif;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
+
+#addComment a:hover {
+
+  text-decoration: underline;
+}
+
+#allComments {
+
+  margin-top: 30px;
+  margin-bottom: 5%;
+}
+
+#allComments a {
+
+  text-decoration: none;
+  font-family: 'Philosopher', sans-serif;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
+
+#allComments a:hover {
+
+  text-decoration: underline;
+}
+
+
+/* Chapters list designs
+------------------------ */
+
+.ChaptersTitles {
+
+  font-family: 'Philosopher', sans-serif;
+  font-size: 150%;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  width: 50%;
+}
+
+.ChaptersListContent {
+
+  padding: 20px;
+  margin: 30px auto;
+  box-shadow: 10px 10px 10px;
+  background-color: white;
+}
+
+.newsContent {
+
+  font-family: 'Times New Roman', sans-serif;
+  font-size: 100%;
+  word-break: break-word;
+  text-align: justify;
+  margin-top: 30px;
+}
+
+.readmore {
+
+  text-align: right;
+  font-family: 'Times New Roman', sans-serif;
+  margin-top: 20px;
+}
+
+.readmore a {
+
+  text-decoration: none;
+  color: rgb(0, 133, 189);
+}
+
+.readmore a:hover {
+
+  text-decoration: underline;
+}
+
+/* Dashboard designs
+------------------------------ */
+
+#dashBoard {
+
+  margin-top: 15%;
+}
+
+#dashBoard a {
+
+  color: black;
+}
+
+#dashBoard a:hover {
+
+  color: rgb(0, 133, 189);
+  text-decoration: none;
+}
+
+#quicklooktitle {
+
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: rgb(0, 133, 189);
+  font-family: 'Philosopher', sans-serif;
+  font-size: 140%;
+  text-align: center;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+  margin: 0;
+}
+
+#quicklookcontent {
+
+  background-color: white;
+  margin: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#quicklookcontent p {
+
+  color: black;
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#quicklookcontent p i {
+
+  margin-right: 15px;
+}
+
+#lastPost {
+
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 10px white;
+}
+
+#lastPostTitle {
+
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: rgb(0, 133, 189);
+  font-family: 'Philosopher', sans-serif;
+  font-size: 140%;
+  text-align: center;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
+
+#lastChapterTitle {
+
+  font-family: 'Philosopher', sans-serif;
+  font-size: 120%;
+}
+
+#lastChapterContent p {
+
+  font-size: 90%;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+#lastChapterDate {
+
+  font-family: 'Philosopher', sans-serif;
+  font-size: 100%;
+  text-align: right;
+  margin-top: 20px;
+}
+
+#lastComment {
+
+  border-top: 1px solid black;
+  padding: 10px;
+}
+
+#lastCommentTitle {
+
+  font-family: 'Philosopher', sans-serif;
+  font-size: 120%;
+}
+
+#lastCommentContent {
+
+  font-size: 90%;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+#lastCommentDate {
+
+  font-family: 'Philosopher', sans-serif;
+  font-size: 100%;
+  text-align: right;
+  margin-top: 20px;
+}
+
+#adminBadge {
+
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0));
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-family: 'Philosopher', sans-serif;
+  margin-top: 15%;
+}
+
+#adminBadgetitle {
+
+  font-size: 200%;
+  text-align: center;
+  margin-top: 5%;
+}
+
+#adminBadgeauthor {
+
+  font-size: 140%;
+  text-align: center;
+  margin-top: 5%;
+}
+
+
+/* Dashboard - Chapters designs
+------------------------------ */
+
+#adminChapterListTable {
+
+  border-collapse: collapse;
+  position: relative;
+  width: 90%;
+  margin-top: 5%;
+  margin-left: 5%;
+  box-shadow: 10px 10px 10px;
+  background-color: white;
+}
+
+#adminChapterListTable td {
+
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+#adminChapterListTable th {
+
+  border: 1px solid black;
+  padding: 10px;
+  font-family: 'Philosopher', sans-serif;
+  text-align: center;
+}
+
+.adminChapterTitles {
+
+  color: black;
+}
+
+.adminChapterTitles:hover {
+
+  color: rgb(0, 133, 189);
+  text-decoration: none;
+}
+
+.Actions a {
+
+  color: black;
+  margin-left: 15px;
+}
+
+.Actions a:hover {
+
+  color: rgb(0, 133, 189);
+}
+
+#backtodashboard {
+
+  color: white;
+  font-family: 'Philosopher', sans-serif;
+  font-size: 120%;
+}
+
+#backtodashboard i {
+
+  color: white;
+  margin-right: 15px;
+}
+
+#backtodashboard:hover {
+
+  text-decoration: underline;
+}
+
+/* Dashboard - Comments designs
+------------------------------ */
+
+#adminCommentsListTable {
+
+  border-collapse: collapse;
+  position: relative;
+  width: 90%;
+  margin-top: 10%;
+  margin-left: 5%;
+  box-shadow: 10px 10px 10px;
+  background-color: white;
+}
+
+#adminCommentsListTable td {
+
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+#adminCommentsListTable th {
+
+  border: 1px solid black;
+  padding: 10px;
+  font-family: 'Philosopher', sans-serif;
+  text-align: center;
+}
+
+.Actions2 a {
+
+  color: black;
+  margin-left: 15px;
+}
+
+.Actions2 a:hover {
+
+  color: rgb(0, 133, 189);
+}
+
+
+/* Chapter adding panel
+----------------------- */
+
+#chapteradding form input[name='auteur'] {
+
+  width: 80%;
+  height: 2em;
+  font-size: 100%;
+  padding-left: 5px;
+  margin-left: 5%;
+  margin-top: 2.5%;
+  margin-bottom: 10%;
+}
+
+#chapteradding form input[name='titre'] {
+
+  width: 80%;
+  height: 2em;
+  font-size: 100%;
+  padding-left: 5px;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+#chapteradding form input[type='submit'] {
+
+  background-color: rgb(0, 133, 189);
+  border-radius: 5px;
+  color: white;
+  font-family: 'Philosopher', sans-serif;
+  font-size: 100%;
+  padding: 5px 15px;
+  box-shadow: 0px 0px 10px white;
+  cursor: pointer;
+  margin-top: 5%;
+  margin-left: 47.5%;
+}
+
+#chapteradding form label {
+
+  font-size: 150%;
+  width: 5%;
+  font-family: 'Philosopher', sans-serif;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+  text-align: center;
+}
+
+#chapteradding form label[for='auteur'] {
+
+  margin-left: 5%;
+}
+
+#chapteradding form label[for='titre'] {
+
+  margin-left: 5%;
+}
+
+.validators {
+
+  color: white;
+  font-family: 'Philosopher';
+  text-align: center;
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, .7);
+  box-shadow: 5px 5px 5px black;
+}
+
+/* #tooLongChapterAuthor {
+
+  position: absolute;
+  left: 25%;
+  top: 20%;
+  width: 80%;
+}
+
+#noChapterAuthor {
+
+  position: absolute;
+  left: 25%;
+  top: 20%;
+  width: 60%;
+}
+
+#tooLongChapterTitle {
+
+  position: absolute;
+  left: 25%;
+  top: 30%;
+  width: 60%;
+}
+
+#noChapterTitle {
+
+  position: absolute;
+  left: 25%;
+  top: 30%;
+  width: 60%;
+}
+
+#noChapterContent {
+
+  position: absolute;
+  left: 25%;
+  top: 90%;
+  width: 60%;
+} */
+
+
+
+#mceu_17 {
+
+  box-shadow: 10px 10px 10px black;
+  margin-left: 5%;
+}
+
+/* Comments adding designs
+--------------------------- */
+
+#commentForm form label {
+
+  font-size: 150%;
+  width: 7%;
+	margin-left: 5%;
+  margin-right: 5%;
+  font-family: 'Philosopher', sans-serif;
+  color: white;
+  text-shadow: 0px 0px 5px white;
+  text-align: center;
+}
+
+#commentForm form input[name='auteur'] {
+
+  width: 80%;
+  height: 2em;
+  font-size: 100%;
+  padding-left: 5px;
+  margin-bottom: 5%;
+}
+
+#commentForm textarea {
+
+  width: 80%;
+  height: 300px;
+  font-size: 100%;
+  padding-left: 5px;
+}
+
+#commentForm form input[type='submit'] {
+
+  background-color: rgb(0, 133, 189);
+  border-radius: 5px;
+  color: white;
+  font-family: 'Philosopher', sans-serif;
+  font-size: 100%;
+  padding: 5px 10px;
+  box-shadow: 0px 0px 10px white;
+  margin-left: 45%;
+  margin-top: 4%;
+}
+
+.validators {
+
+  color: white;
+  font-family: 'Philosopher';
+  text-align: center;
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, .7);
+  box-shadow: 5px 5px 5px black;
+}
+
+#tooLongComment {
+
+  width: 60%;
+  margin-left: 20%;
+}
+
+#noCommentAuthor {
+
+  width: 60%;
+  margin-left: 20%;
+}
+
+#noComment {
+
+  width: 60%;
+  margin-left: 20%;
+}
+
+/* Comments updating designs
+--------------------------- */
+
+#updateCommentForm form label {
+
+  font-size: 150%;
+  width: 7%;
+	margin-left: 5%;
+  margin-right: 5%;
+  font-family: 'Philosopher', sans-serif;
+  color: white;
+  text-shadow: 0px 0px 5px white;
+  text-align: center;
+}
+
+#updateCommentForm form input[name='auteur'] {
+
+  width: 80%;
+  height: 2em;
+  font-size: 100%;
+  padding-left: 5px;
+  margin-bottom: 5%;
+}
+
+#updateCommentForm textarea {
+
+  width: 80%;
+  height: 300px;
+  font-size: 100%;
+  padding-left: 5px;
+}
+
+#updateCommentForm form input[type='submit'] {
+
+  background-color: rgb(0, 133, 189);
+  border-radius: 5px;
+  color: white;
+  font-family: 'Philosopher', sans-serif;
+  font-size: 100%;
+  padding: 5px 10px;
+  box-shadow: 0px 0px 10px white;
+  margin-left: 45%;
+  margin-top: 4%;
+}
+
+.validators {
+
+  color: white;
+  font-family: 'Philosopher';
+  text-align: center;
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, .7);
+  box-shadow: 5px 5px 5px black;
+}
+
+#tooLongComment {
+
+  width: 60%;
+  margin-left: 20%;
+}
+
+#noCommentAuthor {
+
+  width: 60%;
+  margin-left: 20%;
+}
+
+#noComment {
+
+  width: 60%;
+  margin-left: 20%;
+}
+
+/* Comments index designs
+--------------------------- */
+
+#indexComments fieldset {
+
+  border: 1px solid white;
+  padding: 10px;
+}
+
+#indexComments fieldset legend {
+
+  font-size: 100%;
+  font-family: 'Philosopher', sans-serif;
+  padding: 5px;
+  width: 90%;
+  border: 1px solid white;
+  color: white;
+}
+
+#indexComments fieldset legend a {
+
+  color: white;
+}
+
+#indexComments fieldset legend a:hover {
+
+  text-decoration: underline;
+}
+
+#indexComments {
+
+  color: white;
+}
+
+#commentsPagination {
+
+  text-align: center;
+  position: relative;
+  top: 5%;
+  margin-bottom: 5%;
+}
+
+#commentsPagination li {
+
+  display: inline;
+  margin: 0 5px;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
+
+#commentsPagination li a {
+
+  text-decoration: none;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
