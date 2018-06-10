@@ -1,0 +1,40 @@
+@media all and (max-width:767px) {
+
+  #connectionpanel {
+
+      margin-top: 40%;
+  }
+
+  #addedon {
+
+      padding: 0;
+  }
+
+  #addedon p {
+
+      text-align: center;
+  }
+
+  #chapteradding form label {
+
+    font-size: 130%;
+  }
+
+  #commentForm, #updateCommentForm {
+
+    margin-top: 20%;
+  }
+
+  #commentForm form label, #updateCommentForm form label {
+
+    font-size: 130%;
+  }
+
+  #adminChapterListTable, #adminCommentsListTable {
+
+    width: 100%;
+    margin-left: 0;
+    box-shadow: none;
+  }
+
+}

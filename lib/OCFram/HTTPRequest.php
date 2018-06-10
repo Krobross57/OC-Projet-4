@@ -40,6 +40,13 @@ class HTTPRequest extends ApplicationComponent
 
   public function requestURI()
   {
-    return $_SERVER['REQUEST_URI'];
+    $uri = $_SERVER['REQUEST_URI'];
+    $pos =  strpos($uri, '?');
+
+    if ($pos) {
+      return substr($uri, 0, $pos);
+    }
+
+    return $uri;
   }
 }

@@ -78,6 +78,30 @@ class CommentsManagerPDO extends CommentsManager
     return $comments;
   }
 
+  public function getCompleteListOf($news)
+  {
+    if (!ctype_digit($news))
+    {
+      throw new \InvalidArgumentException('L\'identifiant de la news passé doit être un nombre entier valide');
+    }
+
+    $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date FROM comments WHERE news = :news ORDER BY id DESC');
+
+    $q->bindValue(':news', $news, \PDO::PARAM_INT);
+    $q->execute();
+
+    $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
+
+    $comments = $q->fetchAll();
+
+    foreach ($comments as $comment)
+    {
+      $comment->setDate(new \DateTime($comment->date()));
+    }
+
+    return $comments;
+  }
+
   public function getList($debut = -1, $limite = -1)
   {
     $sql = 'SELECT id, news, auteur, contenu, date FROM comments ORDER BY id DESC';

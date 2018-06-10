@@ -24,7 +24,7 @@ body {
     font-family: 'Philosopher', sans-serif;
     font-size: 180%;
     text-align: center;
-    width: 70%;
+    color: black;
 }
 
 #connectionpanelSubTitle {
@@ -34,12 +34,13 @@ body {
     font-style: italic;
     text-align: right;
     margin-bottom: 10%;
+    color: black;
 }
 
 #login {
 
     padding-left: 10px;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 
 #password {
@@ -68,6 +69,19 @@ body {
 /* Main designs
 --------------- */
 
+#error404 {
+
+  font-family: 'Philosopher', sans-serif;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+  margin-top: 25%;
+  background-color: rgb(0, 133, 189);
+}
+
+
+/* Main designs
+--------------- */
+
 header {
     width: 100%;
     height: 10%;
@@ -88,10 +102,8 @@ header {
 .navbar-light .navbar-brand {
 
   font-family: 'Philosopher', sans-serif;
-  height: 100%;
-  width: 30%;
-  margin: auto 0;
-  padding: 20px;
+  margin-left: 10px;
+  padding: 0 5px;
   font-weight: 600;
   font-size: 150%;
   color: rgba(0, 0, 0, 1);
@@ -107,14 +119,15 @@ header {
 
 .navbar-nav {
 
-  background-color: white;
+  background-color: transparent;
 }
 
 .nav-item {
     display: inline;
-    margin: auto 15px;
+    margin: 0 10px;
     color: black;
     font-family: 'Philosopher', sans-serif;
+
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -129,64 +142,15 @@ header {
   color: rgb(0, 133, 189);
 }
 
+.navbar-light .navbar-toggler {
+
+  color: rgba(0, 0, 0, 1);
+  border-color: rgba(0, 0, 0, 1);
+}
+
 .navbar-toggler {
 
   margin-right: 2%;
-}
-
-#post {
-    width: 70%;
-    height: 120%;
-    position: absolute;
-    top: 20%;
-    left: 5%;
-}
-
-#title {
-    width: 100%;
-    height: 10%;
-    margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: white;
-}
-
-#title h2 {
-    font-family: 'Philosopher', sans-serif;
-    width: 20%;
-    height: 30%;
-    position: absolute;
-    left: 5%;
-    top: 35%;
-    text-align: left;
-    margin: 0;
-}
-
-#socialmedias {
-    display: block;
-    list-style-type: none;
-    width: 5%;
-    height: 40%;
-    position: fixed;
-    top: 30%;
-    right: 3%;
-}
-
-#socialmedias li {
-
-    margin: 40px auto;
-}
-
-#socialmedias li a {
-
-    color: white;
-    text-decoration: none;
-}
-
-#socialmedias li a:hover {
-
-  color: rgb(0, 133, 189);
 }
 
 .pagination {
@@ -463,6 +427,7 @@ header {
   color: white;
   text-shadow: 0px 0px 10px white;
   margin: 0;
+  box-shadow: 0px 0px 10px white;
 }
 
 #quicklookcontent {
@@ -471,6 +436,7 @@ header {
   margin: 0;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  box-shadow: 0px 0px 10px white;
 }
 
 #quicklookcontent p {
@@ -757,52 +723,10 @@ header {
   box-shadow: 5px 5px 5px black;
 }
 
-/* #tooLongChapterAuthor {
-
-  position: absolute;
-  left: 25%;
-  top: 20%;
-  width: 80%;
-}
-
-#noChapterAuthor {
-
-  position: absolute;
-  left: 25%;
-  top: 20%;
-  width: 60%;
-}
-
-#tooLongChapterTitle {
-
-  position: absolute;
-  left: 25%;
-  top: 30%;
-  width: 60%;
-}
-
-#noChapterTitle {
-
-  position: absolute;
-  left: 25%;
-  top: 30%;
-  width: 60%;
-}
-
-#noChapterContent {
-
-  position: absolute;
-  left: 25%;
-  top: 90%;
-  width: 60%;
-} */
-
-
-
 #mceu_17 {
 
   box-shadow: 10px 10px 10px black;
-  margin-left: 5%;
+  margin-left: 0;
 }
 
 /* Comments adding designs

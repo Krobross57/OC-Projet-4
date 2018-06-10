@@ -56,9 +56,9 @@
 
     <p id="addComment"><a href="commenter-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
 
-    <?php if (count($comments) > 5) { ?>
+    <?php if (count($totalComments) > 5) { ?>
 
-      <p id="allComments"><a href="/news-<?= $news['id'] ?>/comments.html">Voir tous les commentaires</a></p>
+      <p id="allComments"><a href="/news-<?= $news['id'] ?>/comments.html">Voir tous les commentaires ( <?= count($totalComments) ?> )</a></p>
 
     <?php } ?>
 

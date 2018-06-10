@@ -111,8 +111,7 @@ class NewsController extends BackController
     $commentsManager = $this->managers->getManagerOf('Comments');
 
     $comments = $commentsManager->getListOf($news->id(), 0, 5);
-
-
+    $totalComments = $commentsManager->getCompleteListOf($news->id());
 
 
     if (empty($news))
@@ -123,6 +122,7 @@ class NewsController extends BackController
     $this->page->addVar('title', $news->titre());
     $this->page->addVar('news', $news);
     $this->page->addVar('comments', $comments);
+    $this->page->addVar('totalComments', $totalComments);
   }
 
   public function executeInsertComment(HTTPRequest $request)
@@ -153,6 +153,7 @@ class NewsController extends BackController
       $this->app->user()->setFlash('Votre commentaire a bien été ajouté, merci !');
 
       $this->app->httpResponse()->redirect('news-'.$request->getData('news').'.html');
+
     }
 
     $this->page->addVar('comment', $comment);
@@ -169,9 +170,9 @@ class NewsController extends BackController
 
     $this->managers->getManagerOf('Comments')->mark($comment);
 
-    $this->app->user()->setFlash('Le commentaire a bien été signalé ! Merci de votre collaboration !');
-
     $this->app->httpResponse()->redirect('/');
+
+    $this->app->user()->setFlash('Le commentaire a bien été signalé ! Merci de votre collaboration !');      
   }
 
 }

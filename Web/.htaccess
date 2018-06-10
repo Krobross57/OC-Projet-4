@@ -1,12 +1,11 @@
 RewriteEngine On
 
-RewriteBase /
+
 
 RewriteRule ^admin/ index.php?app=Backend [QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-l
 
+RewriteCond %{REQUEST_FILENAME} !\.(css|js|png|jpg)$
 
-RewriteRule ^.*$ index.php?app=Frontend [QSA,L]
+RewriteRule ^(.*)$ index.php?app=Frontend [QSA,L]

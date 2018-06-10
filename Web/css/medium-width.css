@@ -1,0 +1,39 @@
+@media all and (max-width:991px) {
+
+  .navbar-nav {
+
+    background-color: white;
+  }
+
+  .mainContent {
+
+    margin-top: 15%;
+  }
+
+  #connectionpanel {
+
+      margin-top: 30%;
+  }
+
+  #quicklook {
+
+    margin-bottom: 5%;
+  }
+
+  #adminBadge {
+
+    display: none;
+  }
+
+  #chapteradding form input[name='auteur'], #chapteradding form input[name='titre'] {
+
+    margin-left: 10%;
+  }
+
+  #commentForm form label, #updateCommentForm form label  {
+
+    margin-left: 0;
+    margin-right: 10%;
+  }
+
+}

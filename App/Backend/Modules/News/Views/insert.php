@@ -25,7 +25,7 @@
 <script> tinymce.init({
   selector: '#contenu',
   height: 400,
-  width: '90%',
+  width: '100%',
   menubar: false,
   branding: false,
   elementpath: false,

@@ -10,42 +10,42 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="/images/thumbnail.png" />
   <link href="/css/style2.css" rel="stylesheet" />
-  <!-- <link href="/css/laptop.css" rel="stylesheet" />
-  <link href="/css/tablet.css" rel="stylesheet" />
-  <link href="/css/tabletS.css" rel="stylesheet" />
-  <link href="/css/mobileL.css" rel="stylesheet" />
-  <link href="/css/mobileM.css" rel="stylesheet" />
-  <link href="/css/mobileS.css" rel="stylesheet" /> -->
+  <link href="/css/medium-width.css" rel="stylesheet" />
+  <link href="/css/small-width.css" rel="stylesheet" />
+  <link href="/css/extrasmall-width.css" rel="stylesheet" />
+  <link href="/css/extraextrasmall-width.css" rel="stylesheet" />
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
-      <a class="navbar-brand" href="/">BILLET SIMPLE POUR L'ALASKA</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <a class="navbar-brand" href="/">BILLET SIMPLE POUR L'ALASKA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/">Administration</a>
-          </li>
-          <?php if ($user->isAuthenticated()) { ?>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/news-insert.html">Ajouter un chapitre</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Logout.php">Déconnexion</a>
-          </li>
-          <?php } ?>
-        </ul>
-      </div>
-    </nav>
-  </header>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/">Administration</a>
+        </li>
+        <?php if ($user->isAuthenticated()) { ?>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/news-insert.html">Ajouter un chapitre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Logout.php">Déconnexion</a>
+        </li>
+        <?php } ?>
+      </ul>
+    </div>
+  </nav>
+</header>
 
 
 
@@ -60,7 +60,7 @@
 
 
 
-  <ul id="socialmedias">
+  <!-- <ul id="socialmedias">
   <li>
     <a href="https://fr-fr.facebook.com/"><i class="fa fa-facebook fa-2x fa-fw" aria-hidden="true"></i></a>
   </li>
@@ -73,7 +73,7 @@
   <li>
     <a href="https://www.youtube.com/?gl=FR"><i class="fa fa-youtube fa-2x fa-fw" aria-hidden="true"></i></a>
   </li>
-</ul>
+</ul> -->
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>

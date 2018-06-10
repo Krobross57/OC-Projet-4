@@ -1,0 +1,29 @@
+@media all and (max-width:455px) {
+
+
+  .navbar-light .navbar-brand {
+
+    font-family: 'Philosopher', sans-serif;
+    margin-left: 0px;
+    padding: 0;
+    font-weight: 600;
+    font-size: 110%;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .navbar-toggler-icon {
+
+    width: .9em;
+    height: .9em;
+  }
+
+  .navbar-toggler {
+
+    padding: .10rem .50rem;
+  }
+
+
+
+}
