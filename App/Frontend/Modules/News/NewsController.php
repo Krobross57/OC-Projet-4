@@ -55,7 +55,6 @@ class NewsController extends BackController
     $this->page->addVar('nombrePages', $nombrePages);
     $this->page->addVar('pageCourante', $pageCourante);
 
-
   }
 
   public function executeIndexComments(HTTPRequest $request)
@@ -75,7 +74,7 @@ class NewsController extends BackController
     }
 
 
-    $nombreTotalComments = $manager->count();
+    $nombreTotalComments = count($manager->getCompleteListOf($news->id()));
     $commentsParPage = $nombreComments;
     $page = intval($request->getData('page'));
     $nombrePages = ceil($nombreTotalComments/$commentsParPage);
@@ -88,19 +87,15 @@ class NewsController extends BackController
       $pageCourante = 1;
     }
 
+    $listeComments = $manager->getListOf($news->id(),(($pageCourante-1)*$commentsParPage), $commentsParPage);
+
 
     $this->page->addVar('news', $news);
-    $this->page->addVar('comments', $manager->getListOf($news->id(), 0, $nombreComments));
+    $this->page->addVar('listeComments', $listeComments);
     $this->page->addVar('nombrePages', $nombrePages);
     $this->page->addVar('pageCourante', $pageCourante);
-    $this->page->addVar('nombreComments', $nombreComments);
     $this->page->addVar('titre', $news->titre());
     $this->page->addVar('title', $news->titre().' - Commentaires');
-
-
-
-
-
   }
 
   public function executeShow(HTTPRequest $request)
@@ -172,7 +167,7 @@ class NewsController extends BackController
 
     $this->app->httpResponse()->redirect('/');
 
-    $this->app->user()->setFlash('Le commentaire a bien été signalé ! Merci de votre collaboration !');      
+    $this->app->user()->setFlash('Le commentaire a bien été signalé ! Merci de votre collaboration !');
   }
 
 }
