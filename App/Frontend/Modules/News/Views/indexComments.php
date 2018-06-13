@@ -7,7 +7,7 @@
           </h2>
 
           <?php
-          foreach ($comments as $comment)
+          foreach ($listeComments as $comment)
           {
           ?>
           <fieldset>

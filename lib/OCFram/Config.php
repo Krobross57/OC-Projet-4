@@ -5,6 +5,7 @@ class Config extends ApplicationComponent
 {
   protected $vars = [];
 
+  // Méthode permettant de récupérer les variables contenues dans les fichiers config.xml
   public function get($var)
   {
     if (!$this->vars)

@@ -19,31 +19,6 @@ class CommentsManagerPDO extends CommentsManager
     $comment->setId($this->dao->lastInsertId());
   }
 
-  public function count()
-  {
-    return $this->dao->query('SELECT COUNT(*) FROM comments')->fetchColumn();
-  }
-
-  public function countMarkedComments($mark) {
-
-    if (!is_bool($mark))
-    {
-      throw new \InvalidArgumentException('L\'attribut du commentaire passé doit être un booléen');
-    }
-
-    $q = $this->dao->prepare('SELECT id, news, auteur, contenu, mark, date FROM comments WHERE mark = :mark ORDER BY id DESC');
-    $q->bindValue(':mark', (bool)$mark, \PDO::PARAM_BOOL);
-    $q->execute();
-
-    $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
-
-    $comments = $q->fetchAll();
-
-
-    return $comments;
-  }
-
-
   public function delete($id)
   {
     $this->dao->exec('DELETE FROM comments WHERE id = '.(int) $id);
@@ -52,6 +27,37 @@ class CommentsManagerPDO extends CommentsManager
   public function deleteFromNews($news)
   {
     $this->dao->exec('DELETE FROM comments WHERE news = '.(int) $news);
+  }
+
+  protected function modify(Comment $comment)
+  {
+    $q = $this->dao->prepare('UPDATE comments SET auteur = :auteur, contenu = :contenu WHERE id = :id');
+
+    $q->bindValue(':auteur', $comment->auteur());
+    $q->bindValue(':contenu', $comment->contenu());
+    $q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
+
+    $q->execute();
+  }
+
+  public function mark(Comment $comment)
+  {
+    $q = $this->dao->prepare('UPDATE comments SET mark = :mark WHERE id = :id');
+
+    $q->bindValue(':mark', $comment->mark());
+    $q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
+
+    $q->execute();
+  }
+
+  public function unmark(Comment $comment)
+  {
+    $q = $this->dao->prepare('UPDATE comments SET mark = :mark WHERE id = :id');
+
+    $q->bindValue(':mark', $comment->mark());
+    $q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
+
+    $q->execute();
   }
 
   public function getListOf($news, $debut = -1, $limite = -1)
@@ -127,37 +133,6 @@ class CommentsManagerPDO extends CommentsManager
     return $listeComments;
   }
 
-  protected function modify(Comment $comment)
-  {
-    $q = $this->dao->prepare('UPDATE comments SET auteur = :auteur, contenu = :contenu WHERE id = :id');
-
-    $q->bindValue(':auteur', $comment->auteur());
-    $q->bindValue(':contenu', $comment->contenu());
-    $q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
-
-    $q->execute();
-  }
-
-  public function mark(Comment $comment)
-  {
-    $q = $this->dao->prepare('UPDATE comments SET mark = :mark WHERE id = :id');
-
-    $q->bindValue(':mark', $comment->mark());
-    $q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
-
-    $q->execute();
-  }
-
-  public function unmark(Comment $comment)
-  {
-    $q = $this->dao->prepare('UPDATE comments SET mark = :mark WHERE id = :id');
-
-    $q->bindValue(':mark', $comment->mark());
-    $q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
-
-    $q->execute();
-  }
-
   public function get($id)
   {
     $q = $this->dao->prepare('SELECT id, news, auteur, contenu FROM comments WHERE id = :id');
@@ -169,7 +144,7 @@ class CommentsManagerPDO extends CommentsManager
     return $q->fetch();
   }
 
-  public function getMarkedComment($mark, $debut = -1, $limite = -1)
+  public function getMarkedComments($mark, $debut = -1, $limite = -1)
   {
     if (!is_bool($mark))
     {
@@ -190,5 +165,23 @@ class CommentsManagerPDO extends CommentsManager
     }
 
     return $comments;
+  }
+
+  public function countMarkedComments($mark) {
+
+    if (!is_bool($mark))
+    {
+      throw new \InvalidArgumentException('L\'attribut du commentaire passé doit être un booléen');
+    }
+
+    $q = $this->dao->prepare('SELECT id, news, auteur, contenu, mark, date FROM comments WHERE mark = :mark ORDER BY id DESC');
+    $q->bindValue(':mark', (bool)$mark, \PDO::PARAM_BOOL);
+    $q->execute();
+
+    $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
+
+    $comments = $q->fetchAll();
+
+    return count($comments);
   }
 }

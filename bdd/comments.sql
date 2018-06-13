@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `auteur` varchar(50) NOT NULL,
   `contenu` text NOT NULL,
   `date` datetime NOT NULL,
+  `mark` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8 ;

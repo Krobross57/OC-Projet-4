@@ -19,6 +19,9 @@ abstract class Application
     $this->name = '';
   }
 
+
+  // Méthode permettant de recuppérer un contrôleur en parsant les routes contenues dans les fichiers routes.xml
+
   public function getController()
   {
     $router = new Router;
@@ -28,39 +31,39 @@ abstract class Application
 
     $routes = $xml->getElementsByTagName('route');
 
-    // On parcourt les routes du fichier XML.
+    // Parcours des routes du fichier XML
     foreach ($routes as $route)
     {
       $vars = [];
 
-      // On regarde si des variables sont présentes dans l'URL.
+      // Vérification de la présence de variables dans l'URL
       if ($route->hasAttribute('vars'))
       {
         $vars = explode(',', $route->getAttribute('vars'));
       }
 
-      // On ajoute la route au routeur.
+      // Ajout de la route au routeur
       $router->addRoute(new Route($route->getAttribute('url'), $route->getAttribute('module'), $route->getAttribute('action'), $vars));
     }
 
     try
     {
-      // On récupère la route correspondante à l'URL.
+      // Récupération de la route correspondante à l'URL.
       $matchedRoute = $router->getRoute($this->httpRequest->requestURI());
     }
     catch (\RuntimeException $e)
     {
       if ($e->getCode() == Router::NO_ROUTE)
       {
-        // Si aucune route ne correspond, c'est que la page demandée n'existe pas.
+        // Si aucune route ne correspond, c'est que la page demandée n'existe pas
         $this->httpResponse->redirect404();
       }
     }
 
-    // On ajoute les variables de l'URL au tableau $_GET.
+    // A jout des variables de l'URL au tableau $_GET
     $_GET = array_merge($_GET, $matchedRoute->vars());
 
-    // On instancie le contrôleur.
+    // Instanciation du contrôleur
     $controllerClass = 'App\\'.$this->name.'\\Modules\\'.$matchedRoute->module().'\\'.$matchedRoute->module().'Controller';
     return new $controllerClass($this, $matchedRoute->module(), $matchedRoute->action());
   }

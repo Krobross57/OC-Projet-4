@@ -11,9 +11,11 @@ use \OCFram\FormHandler;
 
 class NewsController extends BackController
 {
+
+  // Méthode permettant de supprimer un chapitre
+
   public function executeDelete(HTTPRequest $request)
   {
-
     $newsId = $request->getData('id');
 
     $this->managers->getManagerOf('News')->delete($newsId);
@@ -25,6 +27,8 @@ class NewsController extends BackController
 
   }
 
+  // Méthode permettant de supprimer un commentaire
+
   public function executeDeleteComment(HTTPRequest $request)
   {
     $this->managers->getManagerOf('Comments')->delete($request->getData('id'));
@@ -34,6 +38,9 @@ class NewsController extends BackController
     $this->app->httpResponse()->redirect('/admin/');
   }
 
+
+  // Méthode permettant d'afficher le tableau de bord du BackOffice
+
   public function executeIndex(HTTPRequest $request)
   {
       $newsManager = $this->managers->getManagerOf('News');
@@ -41,46 +48,37 @@ class NewsController extends BackController
       $nombreCaracteres = $this->app->config()->get('nombre_caracteres');
 
       $newsPubliees = $newsManager->count();
-      $commentsAModerer= count($commentsManager->countMarkedComments(true));
-
+      $commentsAModerer= $commentsManager->countMarkedComments(true);
 
       $lastNews = $newsManager->getList(0, 1);
       $lastComments = $commentsManager->getList(0, 1);
 
-
-
       foreach ($lastNews as $news) {
-
         if (strlen($news->contenu()) > $nombreCaracteres)
         {
           $debut = substr($news->contenu(), 0, $nombreCaracteres);
           $debut = substr($debut, 0, strrpos($debut, ' ')) . ' ...';
-
           $news->setContenu($debut);
         }
-
       }
 
       foreach ($lastComments as $comments) {
-
         if (strlen($comments->contenu()) > $nombreCaracteres)
         {
           $debut = substr($news->contenu(), 0, $nombreCaracteres);
           $debut = substr($debut, 0, strrpos($debut, ' ')) . ' ...';
-
           $comments->setContenu($debut);
         }
-
       }
-
 
       $this->page->addVar('title', 'Tableau de bord');
       $this->page->addVar('newsPubliees', $newsPubliees);
       $this->page->addVar('commentsAModerer', $commentsAModerer);
       $this->page->addVar('lastNews', $lastNews);
       $this->page->addVar('lastComments', $lastComments);
-
   }
+
+  // Méthode permettant d'afficher un tableau regroupant tous les chapitres
 
   public function executeIndexNews(HTTPRequest $request)
   {
@@ -108,15 +106,15 @@ class NewsController extends BackController
 
     $listeNews = $newsManager->getList((($pageCourante-1)*$newsParPage), $newsParPage);
 
-
-
     $this->page->addVar('title', 'Liste des chapitres');
     $this->page->addVar('listeNews', $listeNews);
     $this->page->addVar('nombreNews', $nombreNews);
     $this->page->addVar('nombrePagesNews', $nombrePagesNews);
     $this->page->addVar('pageCourante', $pageCourante);
-
   }
+
+
+  // Méthode permettant d'afficher un tableau regroupant les commentaires signalés
 
   public function executeIndexComments(HTTPRequest $request)
   {
@@ -127,7 +125,7 @@ class NewsController extends BackController
     $nombreComments = $this->app->config()->get('nombre_comments');
 
 
-    $nombreTotalComments = $commentsManager->count();
+    $nombreTotalComments = $commentsManager->countMarkedComments(true);
 
     $commentsParPage = $nombreComments;
     $page = intval($request->getData('page'));
@@ -142,15 +140,17 @@ class NewsController extends BackController
       $pageCourante = 1;
     }
 
-    $listeComments = $commentsManager->getMarkedComment(true, 0, $nombreComments);
+    $listeComments = $commentsManager->getMarkedComments(true, (($pageCourante-1)*$commentsParPage), $commentsParPage);
 
     $this->page->addVar('title', 'Commentaires en attente de modération');
     $this->page->addVar('comments', $listeComments );
     $this->page->addVar('nombreComments', $nombreComments);
     $this->page->addVar('nombrePagesComments', $nombrePagesComments);
     $this->page->addVar('pageCourante', $pageCourante);
-
   }
+
+
+  // Méthode permettant d'ajouter un commentaire
 
   public function executeInsert(HTTPRequest $request)
   {
@@ -159,12 +159,18 @@ class NewsController extends BackController
     $this->page->addVar('title', 'Ajouter un chapitre');
   }
 
+
+  // Méthode permettant de modifier un chapitre
+
   public function executeUpdate(HTTPRequest $request)
   {
     $this->processForm($request);
 
     $this->page->addVar('title', 'Modifier un chapitre');
   }
+
+
+  // Méthode permettant de modifier un commentaire
 
   public function executeUpdateComment(HTTPRequest $request)
   {
@@ -199,6 +205,9 @@ class NewsController extends BackController
 
     $this->page->addVar('form', $form->createView());
   }
+
+
+  // Méthode permettant d'utiliser un formulaire pour l'ajout et la modification des chapitres et des commentaires
 
   public function processForm(HTTPRequest $request)
   {
@@ -244,6 +253,9 @@ class NewsController extends BackController
 
     $this->page->addVar('form', $form->createView());
   }
+
+
+  // Méthode permettant de valider un commentaire signalé
 
   public function executeUnmarkComment(HTTPRequest $request)
   {

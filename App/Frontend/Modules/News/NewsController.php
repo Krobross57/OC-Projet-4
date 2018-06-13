@@ -10,11 +10,11 @@ use \OCFram\FormHandler;
 class NewsController extends BackController
 {
 
+  //Méthode permettant d'afficher une liste des chapitres paginée à 10 par page
 
   public function executeIndex(HTTPRequest $request)
   {
 
-    // On récupère le manager des news.
     $manager = $this->managers->getManagerOf('News');
 
     $nombreNews = $this->app->config()->get('nombre_news');
@@ -48,7 +48,6 @@ class NewsController extends BackController
       }
     }
 
-    // On ajoute la variable $listeNews à la vue.
     $this->page->addVar('title', 'Liste des '.$nombreNews.' derniers chapitres');
     $this->page->addVar('listeNews', $listeNews);
     $this->page->addVar('nombreNews', $nombreNews);
@@ -56,6 +55,9 @@ class NewsController extends BackController
     $this->page->addVar('pageCourante', $pageCourante);
 
   }
+
+
+  // Méthode permettant d'afficher la liste complète des commentaires liés à un chapitre donné avec une pagination de 10 par page
 
   public function executeIndexComments(HTTPRequest $request)
   {
@@ -120,6 +122,8 @@ class NewsController extends BackController
     $this->page->addVar('totalComments', $totalComments);
   }
 
+  // Méthode permettant d'ajouter un commentaire
+
   public function executeInsertComment(HTTPRequest $request)
   {
     // Si le formulaire a été envoyé.
@@ -155,6 +159,8 @@ class NewsController extends BackController
     $this->page->addVar('form', $form->createView());
     $this->page->addVar('title', 'Ajout d\'un commentaire');
   }
+
+  // Méthode permettant de signaler un commentaire
 
   public function executeMarkComment(HTTPRequest $request)
   {
