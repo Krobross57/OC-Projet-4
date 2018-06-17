@@ -50,11 +50,11 @@
               foreach ($lastNews as $news) {
             ?>
 
-              <h4 id="lastChapterTitle"><a href="/news-<?= $news['id'] ?>.html"><?php echo $news['titre'] ?></a></h4>
+              <h4 id="lastChapterTitle"><a href="/news-<?= $news['id'] ?>.html"><?php echo strip_tags($news['titre']) ?></a></h4>
 
               <div id="lastChapterContent"><?php echo $news['contenu'] ?></div>
 
-              <p id="lastChapterDate">Le <?php echo $news['dateAjout']->format('d/m/Y à H\hi') ?> par <?php echo $news['auteur'] ?></p>
+              <p id="lastChapterDate">Le <?php echo strip_tags($news['dateAjout']->format('d/m/Y à H\hi')) ?> par <?php echo strip_tags($news['auteur']) ?></p>
 
               <?php
               }
@@ -73,9 +73,9 @@
 
               <h4 id="lastCommentTitle"><a href="/news-<?= $comments['news'] ?>/comments.html">Commentaire</a></h4>
 
-              <div id="lastCommentContent"><?php echo $comments['contenu'] ?></div>
+              <div id="lastCommentContent"><?php echo strip_tags($comments['contenu']) ?></div>
 
-              <p id="lastCommentDate">Le <?php echo $comments['date']->format('d/m/Y à H\hi') ?> par <?php echo $comments['auteur'] ?></p>
+              <p id="lastCommentDate">Le <?php echo strip_tags($comments['date']->format('d/m/Y à H\hi')) ?> par <?php echo strip_tags($comments['auteur']) ?></p>
 
               <?php
               }

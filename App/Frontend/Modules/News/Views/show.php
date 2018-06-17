@@ -2,13 +2,13 @@
   <div class="row">
     <div id="chapterItem" class="col-lg-12 mainContent">
 
-    <h2 id="chapterTitle"><?= $news['titre'] ?></h2>
+    <h2 id="chapterTitle"><?php echo strip_tags($news['titre']) ?></h2>
     <div id="addedon">
       <p>
         <i class="fa fa-calendar" aria-hidden="true"></i>
-        <span id="addingdate"><?= $news['dateAjout']->format('d/m/Y à H\hi') ?></span>
+        <span id="addingdate"><?php echo $news['dateAjout']->format('d/m/Y à H\hi') ?></span>
       </p>
-      <p><i class="fa fa-user" aria-hidden="true"></i><span id="addingauthor"><?= $news['auteur'] ?></span></p>
+      <p><i class="fa fa-user" aria-hidden="true"></i><span id="addingauthor"><?php echo strip_tags($news['auteur']) ?></span></p>
     </div>
 
 
@@ -16,7 +16,7 @@
     <div id="chapterContent"><?= nl2br($news['contenu']) ?>
       <div id="lastModif">
         <?php if ($news['dateAjout'] != $news['dateModif']) { ?>
-          <p style="text-align: right;"><small><em>Modifié le <?= $news['dateModif']->format('d/m/Y à H\hi') ?></em></small></p>
+          <p style="text-align: right;"><small><em>Modifié le <?php echo $news['dateModif']->format('d/m/Y à H\hi') ?></em></small></p>
         <?php } ?>
       </div>
     </div>
@@ -37,7 +37,7 @@
     ?>
     <fieldset>
       <legend>
-        Posté par <strong><?= htmlspecialchars($comment['auteur']) ?></strong> le <?= $comment['date']->format('d/m/Y à H\hi') ?>
+        Posté par <strong><?php echo strip_tags($comment['auteur']) ?></strong> le <?php echo strip_tags($comment['date']->format('d/m/Y à H\hi')) ?>
 
         - <a class="commentmodify" href="signaler-<?= $comment['id'] ?>.html">Signaler ce commentaire</a>
 
@@ -46,7 +46,7 @@
           <a class="commentmodify" href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer</a>
         <?php } ?>
       </legend>
-      <p id="commentContent"><?= nl2br(htmlspecialchars($comment['contenu'])) ?></p>
+      <p id="commentContent"><?php echo nl2br(strip_tags($comment['contenu'])) ?></p>
     </fieldset></br>
     <?php
     }

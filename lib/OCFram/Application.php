@@ -60,7 +60,7 @@ abstract class Application
       }
     }
 
-    // A jout des variables de l'URL au tableau $_GET
+    // Ajout des variables de l'URL au tableau $_GET
     $_GET = array_merge($_GET, $matchedRoute->vars());
 
     // Instanciation du contrôleur

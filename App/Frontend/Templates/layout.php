@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?= isset($title) ? $title : 'Billet simple pour l\'Alaska' ?> - Billet simple pour l'Alaska</title>
   <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
@@ -14,6 +16,12 @@
   <link href="/css/small-width.css" rel="stylesheet" />
   <link href="/css/extrasmall-width.css" rel="stylesheet" />
   <link href="/css/extraextrasmall-width.css" rel="stylesheet" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 
 <body>

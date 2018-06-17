@@ -8,7 +8,7 @@
         <tr><th>Auteur</th><th>Date</th><th>Contenu</th><th>Actions</th></tr>
         <?php
         foreach ($comments as $comment) {
-            echo '<tr><td>', $comment['auteur'], '</td><td>le ', $comment['date']->format('d/m/Y à H\hi'), '</td><td>', $comment['contenu'], '</td><td
+            echo '<tr><td>', strip_tags($comment['auteur']), '</td><td>le ', strip_tags($comment['date']->format('d/m/Y à H\hi')), '</td><td>', strip_tags($comment['contenu']), '</td><td
             class="Actions2"><a href="comment-unmark-', $comment['id'], '.html"><i class="fa fa-check" aria-hidden="true"></i></a> <a href="comment-update-', $comment['id'], '.html"><i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="comment-delete-', $comment['id'], '.html"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>', "\n";
         }
         ?>

@@ -18,6 +18,7 @@ class NewsFormBuilder extends FormBuilder
         'name' => 'auteur',
         'id' => 'auteur',
         'maxLength' => 20,
+        'value' => ' ',
         'validators' => [
           new MaxLengthValidator('<p class="validators" id="tooLongChapterAuthor">L\'auteur spécifié est trop long (20 caractères maximum)</p>', 20),
           new NotNullValidator('<p class="validators" id="noChapterAuthor">Merci de spécifier l\'auteur du chapitre</p>'),
@@ -30,6 +31,7 @@ class NewsFormBuilder extends FormBuilder
         'name' => 'titre',
         'id' => 'titre',
         'maxLength' => 100,
+        'value' => ' ',
         'validators' => [
           new MaxLengthValidator('<p class="validators" id="tooLongChapterTitle">Le titre spécifié est trop long (100 caractères maximum)</p>', 100),
           new NotNullValidator('<p class="validators" id="noChapterTitle">Merci de spécifier le titre du chapitre</p>'),
@@ -38,6 +40,7 @@ class NewsFormBuilder extends FormBuilder
        ->add(new TextField([
         'name' => 'contenu',
         'id' => 'contenu',
+        'value' => ' ',
         'validators' => [
           new NotNullValidator('<p class="validators" id="noChapterContent">Merci de spécifier le contenu du chapitre</p>'),
         ],

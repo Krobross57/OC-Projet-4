@@ -116,7 +116,7 @@ class NewsController extends BackController
 
   // Méthode permettant d'afficher un tableau regroupant les commentaires signalés
 
-  public function executeIndexComments(HTTPRequest $request)
+  public function executeAdminIndexComments(HTTPRequest $request)
   {
 
     $commentsManager = $this->managers->getManagerOf('Comments');

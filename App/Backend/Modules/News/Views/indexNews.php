@@ -8,7 +8,7 @@
     <tr><th>Auteur</th><th>Titre</th><th>Date de création</th><th>Dernière modification</th><th>Actions</th></tr>
     <?php
     foreach ($listeNews as $news) {
-      echo '<tr><td>', $news['auteur'], '</td><td><a class="adminChapterTitles" href="/news-', $news['id'], '.html">', $news['titre'], '</a></td><td>le ', $news['dateAjout']->format('d/m/Y à H\hi'), '</td><td>', ($news['dateAjout'] == $news['dateModif'] ? ' - ' : 'le '.$news['dateModif']->format('d/m/Y à H\hi')), '</td><td class="Actions"><a href="news-update-', $news['id'], '.html"><i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="news-delete-', $news['id'], '.html"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>', "\n";
+      echo '<tr><td>', strip_tags($news['auteur']), '</td><td><a class="adminChapterTitles" href="/news-', $news['id'], '.html">', strip_tags($news['titre']), '</a></td><td>le ', $news['dateAjout']->format('d/m/Y à H\hi'), '</td><td>', ($news['dateAjout'] == $news['dateModif'] ? ' - ' : 'le '.$news['dateModif']->format('d/m/Y à H\hi')), '</td><td class="Actions"><a href="news-update-', $news['id'], '.html"><i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="news-delete-', $news['id'], '.html"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>', "\n";
     }
     ?>
     </table>

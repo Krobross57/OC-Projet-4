@@ -17,6 +17,7 @@ class CommentFormBuilder extends FormBuilder
         'name' => 'auteur',
         'placeHolder' => 'Veuillez saisir l\'auteur ici',
         'maxLength' => 50,
+        'value' => ' ',
         'validators' => [
           new MaxLengthValidator('<p class="validators" id="tooLongComment">L\'auteur spécifié est trop long (50 caractères maximum)</p>', 50),
           new NotNullValidator('<p class="validators" id="noCommentAuthor">Merci de spécifier l\'auteur du commentaire</p>'),
@@ -27,6 +28,7 @@ class CommentFormBuilder extends FormBuilder
         'for' => 'contenu',
         'name' => 'contenu',
         'placeHolder' => 'Veuillez saisir votre commentaire ici',
+        'value' => ' ',
         'validators' => [
           new NotNullValidator('<p class="validators" id="noComment">Merci de spécifier votre commentaire</p>'),
         ],
