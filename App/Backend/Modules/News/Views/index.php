@@ -18,7 +18,16 @@
 
                     <p id="howmanynews"><i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i><a href="/admin/news.html"><?php echo $newsPubliees ?> chapitre(s) publié(s)</a></p>
 
-                    <p id="howmanycomments"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i><a href="/admin/comments.html"><?php echo $commentsAModerer ?> commentaire(s) à modérer</a></p>
+                    <?php if ($commentsAModerer > 0) { ?>
+                      <p id="howmanycomments"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i><a href="/admin/comments.html"><?php echo $commentsAModerer ?> commentaire(s) à modérer</a></p>
+                    <?php }
+                          else { ?>
+                            <p id="howmanycomments"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i><?php echo $commentsAModerer ?> commentaire(s) à modérer</p>
+
+                          <?php
+                            }
+                          ?>
+
 
                   </div>
               </div>
@@ -65,7 +74,7 @@
 
           <div class="row">
 
-            <div id="lastComment">
+            <div id="lastComment" class="col-lg-12">
 
               <?php
                 foreach ($lastComments as $comments) {

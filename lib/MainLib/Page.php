@@ -1,5 +1,5 @@
 <?php
-namespace OCFram;
+namespace MainLib;
 
 class Page extends ApplicationComponent
 {

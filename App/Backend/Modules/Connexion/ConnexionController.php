@@ -1,8 +1,8 @@
 <?php
 namespace App\Backend\Modules\Connexion;
 
-use \OCFram\BackController;
-use \OCFram\HTTPRequest;
+use \MainLib\BackController;
+use \MainLib\HTTPRequest;
 
 class ConnexionController extends BackController
 {
@@ -15,7 +15,12 @@ class ConnexionController extends BackController
       $login = $request->postData('login');
       $password = $request->postData('password');
 
-      if ($login == $this->app->config()->get('login') && $password == $this->app->config()->get('pass'))
+      $correctPassWord = $this->app->config()->get('pass');
+
+      $isPassWordCorrect = password_verify($password, $correctPassWord);
+
+
+      if ( $login === $this->app->config()->get('login') && $isPassWordCorrect)
       {
         $this->app->user()->setAuthenticated(true);
         $this->app->httpResponse()->redirect('.');

@@ -6,11 +6,11 @@ if (!isset($_GET['app']) || !file_exists(__DIR__.'/../App/'.$_GET['app'])) $_GET
 
 
 // On commence par inclure la classe nous permettant d'enregistrer nos autoload
-require __DIR__.'/../lib/OCFram/SplClassLoader.php';
+require __DIR__.'/../lib/MainLib/SplClassLoader.php';
 
-// EnregistreMENT Des autoloads correspondant à chaque vendor (OCFram, App, Model, etc.)
-$OCFramLoader = new SplClassLoader('OCFram', __DIR__.'/../lib');
-$OCFramLoader->register();
+// EnregistreMENT Des autoloads correspondant à chaque vendor (MainLib, App, Model, etc.)
+$MainLibLoader = new SplClassLoader('MainLib', __DIR__.'/../lib');
+$MainLibLoader->register();
 
 $appLoader = new SplClassLoader('App', __DIR__.'/..');
 $appLoader->register();

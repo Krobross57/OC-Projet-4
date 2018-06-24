@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 
-use \OCFram\Manager;
+use \MainLib\Manager;
 use \Entity\News;
 
 abstract class NewsManager extends Manager

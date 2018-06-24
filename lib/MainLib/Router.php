@@ -1,5 +1,5 @@
 <?php
-namespace OCFram;
+namespace MainLib;
 
 class Router
 {
@@ -20,7 +20,7 @@ class Router
     foreach ($this->routes as $route)
     {
 
-    
+
       // Si la route correspond à l'URL
       if (($varsValues = $route->match($url)) !== false)
       {

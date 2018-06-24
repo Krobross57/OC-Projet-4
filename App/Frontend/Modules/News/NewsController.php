@@ -1,16 +1,16 @@
 <?php
 namespace App\Frontend\Modules\News;
 
-use \OCFram\BackController;
-use \OCFram\HTTPRequest;
+use \MainLib\BackController;
+use \MainLib\HTTPRequest;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
-use \OCFram\FormHandler;
+use \MainLib\FormHandler;
 
 class NewsController extends BackController
 {
 
-  //Méthode permettant d'afficher une liste des chapitres paginée à 10 par page
+  //Méthode permettant d'afficher une liste des chapitres paginée à 10 occurences par page
 
   public function executeIndex(HTTPRequest $request)
   {
@@ -53,7 +53,6 @@ class NewsController extends BackController
     $this->page->addVar('nombreNews', $nombreNews);
     $this->page->addVar('nombrePages', $nombrePages);
     $this->page->addVar('pageCourante', $pageCourante);
-
   }
 
 
@@ -66,15 +65,12 @@ class NewsController extends BackController
 
     $news = $this->managers->getManagerOf('News')->getUnique($request->getData('id'));
 
-    $manager = $this->managers->getManagerOf('Comments');
-
-
-
-    if (empty($news))
+    if (!isset($news) || empty($news))
     {
       $this->app->httpResponse()->redirect404();
     }
 
+    $manager = $this->managers->getManagerOf('Comments');
 
     $nombreTotalComments = count($manager->getCompleteListOf($news->id()));
     $commentsParPage = $nombreComments;
@@ -107,14 +103,14 @@ class NewsController extends BackController
 
     $commentsManager = $this->managers->getManagerOf('Comments');
 
-    $comments = $commentsManager->getListOf($news->id(), 0, 5);
-    $totalComments = $commentsManager->getCompleteListOf($news->id());
-
-
-    if (empty($news))
+    if (empty($news) || !isset($news))
     {
       $this->app->httpResponse()->redirect404();
     }
+
+    $comments = $commentsManager->getListOf($news->id(), 0, 5);
+    $totalComments = $commentsManager->getCompleteListOf($news->id());
+
 
     $this->page->addVar('title', $news->titre());
     $this->page->addVar('news', $news);
@@ -166,6 +162,11 @@ class NewsController extends BackController
   {
 
     $comment = $this->managers->getManagerOf('Comments')->get($request->getData('id'));
+
+    if (!isset($comment))
+    {
+      $this->app->httpResponse()->redirect404();
+    }
 
     $comment->setMark(true);
 

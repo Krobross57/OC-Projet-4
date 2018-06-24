@@ -6,7 +6,7 @@
     <div id="addedon">
       <p>
         <i class="fa fa-calendar" aria-hidden="true"></i>
-        <span id="addingdate"><?php echo $news['dateAjout']->format('d/m/Y à H\hi') ?></span>
+        <span id="addingdate"><?= $news['dateAjout']->format('d/m/Y à H\hi') ?></span>
       </p>
       <p><i class="fa fa-user" aria-hidden="true"></i><span id="addingauthor"><?php echo strip_tags($news['auteur']) ?></span></p>
     </div>
@@ -39,12 +39,16 @@
       <legend>
         Posté par <strong><?php echo strip_tags($comment['auteur']) ?></strong> le <?php echo strip_tags($comment['date']->format('d/m/Y à H\hi')) ?>
 
-        - <a class="commentmodify" href="signaler-<?= $comment['id'] ?>.html">Signaler ce commentaire</a>
-
-        <?php if ($user->isAuthenticated()) { ?> |
-          <a class="commentmodify" href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier</a> |
+        <?php if ($user->isAuthenticated()) { ?>
+          - <a class="commentmodify" href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier</a> |
           <a class="commentmodify" href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer</a>
-        <?php } ?>
+        <?php }
+
+        else {
+          if (!$comment['mark']) { ?>
+             - <a class="commentmodify" href="signaler-<?= $comment['id'] ?>.html">Signaler ce commentaire </a>
+          <?php }
+        }?>
       </legend>
       <p id="commentContent"><?php echo nl2br(strip_tags($comment['contenu'])) ?></p>
     </fieldset></br>

@@ -1,13 +1,13 @@
 <?php
 namespace App\Backend\Modules\News;
 
-use \OCFram\BackController;
-use \OCFram\HTTPRequest;
+use \MainLib\BackController;
+use \MainLib\HTTPRequest;
 use \Entity\News;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \FormBuilder\NewsFormBuilder;
-use \OCFram\FormHandler;
+use \MainLib\FormHandler;
 
 class NewsController extends BackController
 {
@@ -83,10 +83,9 @@ class NewsController extends BackController
   public function executeIndexNews(HTTPRequest $request)
   {
     $newsManager = $this->managers->getManagerOf('News');
-
+    $comments = $this->managers->getManagerOf('Comments');
 
     $nombreNews = $this->app->config()->get('nombre_news');
-
 
     $nombreTotalNews = $newsManager->count();
 
@@ -111,6 +110,7 @@ class NewsController extends BackController
     $this->page->addVar('nombreNews', $nombreNews);
     $this->page->addVar('nombrePagesNews', $nombrePagesNews);
     $this->page->addVar('pageCourante', $pageCourante);
+    $this->page->addVar('comments', $comments);
   }
 
 
